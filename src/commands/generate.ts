@@ -28,6 +28,7 @@ export async function generateCommand(prompt: string, opts: any) {
       count: opts.count ? parseInt(opts.count, 10) : 1,
       noText: opts.text === false,
       seed: opts.seed ? parseInt(opts.seed, 10) : undefined,
+      steps: opts.steps ? parseInt(opts.steps, 10) : undefined,
       outputPath: opts.output,
       autoNameFromPrompt: prompt,
     };

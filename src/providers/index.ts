@@ -1,10 +1,12 @@
 import { GeminiProvider } from "./gemini.js";
+import { MlxProvider } from "./mlx.js";
 import { OpenAIProvider } from "./openai.js";
 import type { ImageProvider } from "./types.js";
 
 const providers: Record<string, ImageProvider> = {
   openai: new OpenAIProvider(),
   gemini: new GeminiProvider(),
+  mlx: new MlxProvider(),
 };
 
 export const DEFAULT_PROVIDER: ImageProvider = providers.openai;
@@ -36,7 +38,7 @@ export function resolveProvider(opts: { provider?: string; model?: string }): {
     }
     if (!providerName) {
       throw new Error(
-        `Couldn't infer provider from model '${modelId}'. Supported prefixes: gpt-image-*, dall-e-*, gemini-*. Use --provider to override.`,
+        `Couldn't infer provider from model '${modelId}'. Supported prefixes: gpt-image-*, dall-e-*, gemini-*, qwen-image-*, z-image-*. Use --provider to override.`,
       );
     }
   }

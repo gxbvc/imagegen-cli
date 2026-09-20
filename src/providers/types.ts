@@ -18,6 +18,7 @@ export interface GenerateRequest {
   count: number;
   noText: boolean;
   seed?: number;
+  steps?: number;
   outputPath?: string;
   autoNameFromPrompt: string;
 }
